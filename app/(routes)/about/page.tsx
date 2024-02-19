@@ -21,9 +21,9 @@ export default function About() {
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
             <AccordionTrigger>
-              <div className='flex gap-3'>
-                <p className='group-hover:underline'>Frontend Engineer - 8x8 inc.</p>
-                <p className='font-thin'>2021 - present</p>
+              <div className='flex gap-3 items-center w-full justify-between'>
+                <p className='group-hover:underline text-left'>Frontend Engineer - 8x8 inc.</p>
+                <p className='font-thin w-fit h-fit text-right shrink-0'>2021 - present</p>
               </div>
             </AccordionTrigger>
             <AccordionContent>
@@ -38,9 +38,9 @@ export default function About() {
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>
-              <div className='flex gap-3'>
-                <p className='group-hover:underline'>Volunteer Programming Teacher - Dalia&apos;s Book</p>
-                <p className='font-thin'>2021</p>
+              <div className='flex gap-3 items-center w-full justify-between'>
+                <p className='group-hover:underline text-left'>Volunteer Programming Teacher - Dalia&apos;s Book</p>
+                <p className='font-thin w-fit h-fit text-right shrink-0'>2021</p>
               </div>
             </AccordionTrigger>
             <AccordionContent>
@@ -58,9 +58,9 @@ export default function About() {
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger>
-              <div className='flex gap-3'>
-                <p className='group-hover:underline'>Design Team Volunteer - ExplorIT Bacău</p>
-                <p className='font-thin'>2019</p>
+              <div className='flex gap-3 items-center w-full justify-between'>
+                <p className='group-hover:underline text-left'>Design Team Volunteer - ExplorIT Bacău</p>
+                <p className='font-thin w-fit h-fit text-right shrink-0'>2019</p>
               </div>
             </AccordionTrigger>
             <AccordionContent>
@@ -75,9 +75,9 @@ export default function About() {
           </AccordionItem>
           <AccordionItem value="item-4">
             <AccordionTrigger>
-              <div className='flex gap-3'>
-                <p className='group-hover:underline'>(Erasmus+) Frontend Developer - DroidHouse</p>
-                <p className='font-thin'>2018</p>
+              <div className='flex gap-3 items-center w-full justify-between'>
+                <p className='group-hover:underline text-left'>(Erasmus+) Frontend Developer - DroidHouse</p>
+                <p className='font-thin w-fit h-fit text-right shrink-0'>2018</p>
               </div>
             </AccordionTrigger>
             <AccordionContent>

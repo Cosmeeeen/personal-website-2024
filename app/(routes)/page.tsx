@@ -9,7 +9,7 @@ export default function Home() {
     <main className="flex justify-center">
       <div className="lg:w-1/2 lg:mx-0 w-full mx-5">
         <Header />
-        <div className="flex gap-5 items-center">
+        <div className="flex gap-5 items-center lg:flex-row flex-col">
           <Image
             src={profileImage}
             alt="A photo of me"

@@ -30,12 +30,12 @@ const socialIcons = [
 export default function Header() {
   return (
     <div className='my-5'>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center grow">
         <div className="my-5">
           <h1 className="lg:text-5xl text-4xl font-bold">Cosmin Ilie</h1>
           <h2 className="lg:text-2xl text-xl font-thin">Frontend Engineer</h2>
         </div>
-        <div className="flex gap-1">
+        <div className="grid md:grid-cols-4 md:grid-rows-1 grid-cols-2 grid-rows-2 gap-2">
           {
             socialIcons.map((icon, index) => (
               <SocialIcon key={index} icon={icon.icon} href={icon.href} label={icon.label} />
