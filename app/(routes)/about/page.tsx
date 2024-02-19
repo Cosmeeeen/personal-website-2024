@@ -6,7 +6,7 @@ import DownloadCvButton from '@/components/DownloadCvButton';
 export default function About() {
   return (
     <main className="flex justify-center">
-      <div className="lg:w-1/2 lg:mx-0 w-full mx-5">
+      <div className="lg:w-1/2 lg:mx-0 w-full m-5">
         <Header />
         <h1 className="lg:text-4xl text-3xl font-semibold pb-2">General Presentation</h1>
         <Separator />

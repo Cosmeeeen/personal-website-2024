@@ -1,13 +1,13 @@
 import Image from 'next/image';
 
 import Header from '@/components/Header';
-import profileImage from '@/app/_assets/profilePicture.webp';
+import profileImage from '@/app/_assets/images/profilePicture.webp';
 import { Separator } from '@/components/ui/separator';
 
 export default function Home() {
   return (
     <main className="flex justify-center">
-      <div className="lg:w-1/2 lg:mx-0 w-full mx-5">
+      <div className="lg:w-1/2 lg:mx-0 w-full m-5">
         <Header />
         <div className="flex gap-5 items-center lg:flex-row flex-col">
           <Image

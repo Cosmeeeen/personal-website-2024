@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 export default function About() {
   return (
     <main className="flex justify-center">
-      <div className="lg:w-1/2 lg:mx-0 w-full mx-5">
+      <div className="lg:w-1/2 lg:mx-0 w-full m-5">
         <Header />
         <h1 className="lg:text-4xl text-3xl font-semibold">This is the contact page</h1>
         <p className="lg:text-lg text-base mt-3">
