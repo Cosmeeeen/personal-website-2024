@@ -50,7 +50,9 @@ export default function About() {
                 <CarouselNext />
               </Carousel>
               <p className='lg:text-lg text-base mt-3'>{project.description}</p>
+              <br />
               <p className='italic'>Used technologies: Next.js (pages router), tRPC, Prisma, Tailwind, NextAuth</p>
+              <br />
               <p className='italic'>Project is deployed to Vercel, uses loglib for analytics, PlanetScale for the database, and (of course) gpt-3.5-turbo for prompt generation</p>
             </div>
           ))
