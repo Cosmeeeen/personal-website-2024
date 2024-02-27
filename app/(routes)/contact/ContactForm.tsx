@@ -49,6 +49,7 @@ const ContactForm = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const resp = await axios.post('/api/email', values);
+      form.reset();
       toast({
         title: 'Email sent',
         description: 'Thank you! I will get back to you as soon as possible. :)',
