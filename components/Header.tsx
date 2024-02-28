@@ -1,31 +1,7 @@
-import { Mail, GitHub, Instagram, Linkedin } from 'react-feather';
-
 import { SocialIcon } from "@/components/SocialIcon";
 import { Separator } from "@/components/ui/separator";
+import { socialLinks } from "@/app/constants/socialLinks";
 import Navigation from './Navigation';
-
-const socialIcons = [
-  {
-    icon: <GitHub />,
-    href: 'https://github.com/Cosmeeeen/',
-    label: 'GitHub',
-  },
-  {
-    icon: <Instagram />,
-    href: 'https://www.instagram.com/cosmin_ilie8',
-    label: 'Instagram',
-  },
-  {
-    icon: <Linkedin />,
-    href: 'https://www.linkedin.com/in/cosmin8/',
-    label: 'LinkedIn',
-  },
-  {
-    icon: <Mail />,
-    href: 'mailto:contact@cosmin.zip',
-    label: 'Mail',
-  }
-];
 
 export default function Header() {
   return (
@@ -37,8 +13,8 @@ export default function Header() {
         </div>
         <div className="grid md:grid-cols-4 md:grid-rows-1 grid-cols-2 grid-rows-2 gap-2">
           {
-            socialIcons.map((icon, index) => (
-              <SocialIcon key={index} icon={icon.icon} href={icon.href} label={icon.label} />
+            socialLinks.filter(link => link?.showInHeader).map((link, index) => (
+              <SocialIcon key={index} icon={link.icon} href={link.href} label={link.title} />
             ))
           }
         </div>

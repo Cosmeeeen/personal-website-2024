@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import UpHereImage from './UpHereImage';
 import { Separator } from '@/components/ui/separator';
 import ContactForm from './ContactForm';
+import SocialLinks from './SocialLinks';
 
 export default function About() {
   return (
@@ -10,6 +11,7 @@ export default function About() {
         <Header />
         <UpHereImage />
         <h3 className="lg:text-xl text-l pb-2 pt-5">However, here are the extended links and a contact form in case you really don&apos;t like your mailing app.</h3>
+        <SocialLinks />
         <ContactForm />
       </div>
     </main>
