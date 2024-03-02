@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Header from '@/components/Header';
 import profileImage from '@/app/_assets/images/profilePicture.webp';
 import { Separator } from '@/components/ui/separator';
+import TicTacToe from '@/components/TicTacToe';
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
             </p>
           </div>
         </div>
+        <TicTacToe />
       </div>
     </main>
   );
