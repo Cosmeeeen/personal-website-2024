@@ -1,12 +1,22 @@
-import { Circle, X } from 'react-feather';
+import { Circle, X } from "react-feather";
 
-const checkWinner = (board: ('X' | '0' | null)[]) => {
+import { TBoard } from "./types";
+
+const checkWinner = (board: TBoard) => {
   // Check rows and columns
   for (let i = 0; i < 3; i++) {
-    if (board[i] === board[i + 3] && board[i] === board[i + 6] && board[i] !== null) {
+    if (
+      board[i] === board[i + 3] &&
+      board[i] === board[i + 6] &&
+      board[i] !== null
+    ) {
       return board[i];
     }
-    if (board[i * 3] === board[i * 3 + 1] && board[i * 3] === board[i * 3 + 2] && board[i * 3] !== null) {
+    if (
+      board[i * 3] === board[i * 3 + 1] &&
+      board[i * 3] === board[i * 3 + 2] &&
+      board[i * 3] !== null
+    ) {
       return board[i * 3];
     }
   }
@@ -19,19 +29,19 @@ const checkWinner = (board: ('X' | '0' | null)[]) => {
   }
   // Check for draw
   if (!board.includes(null)) {
-    return 'draw';
+    return "draw";
   }
 };
 
-const getCellIcon = (cell: 'X' | '0' | null) => {
+const getCellIcon = (cell: "X" | "0" | null) => {
   switch (cell) {
-    case 'X':
-      return <X size='4em' />;
-    case '0':
-      return <Circle size='4em' />;
+    case "X":
+      return <X size="4em" />;
+    case "0":
+      return <Circle size="4em" />;
     default:
       return null;
   }
-}
+};
 
 export { checkWinner, getCellIcon };

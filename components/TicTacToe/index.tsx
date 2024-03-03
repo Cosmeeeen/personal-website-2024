@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { checkWinner, getCellIcon } from "./utils";
 import { ArrowLeft } from "react-feather";
 import SettingsButton from "./SettingsButton";
+import { findBestMove } from "./minimax";
 
 const TicTacToe: React.FC = () => {
   const [board, setBoard] = React.useState(Array(9).fill(null));
@@ -13,22 +14,37 @@ const TicTacToe: React.FC = () => {
   const [xScore, setXScore] = React.useState(0);
   const [oScore, setOScore] = React.useState(0);
 
+  const [isPlayingComputer, setIsPlayingComputer] = React.useState(false);
+
   const handleCellClick = React.useCallback(
     (index: number) => {
       if (board[index] !== null) return;
       if (!playing) return;
+
+      if (isPlayingComputer) {
+        const copy = [...board];
+        copy[index] = turn;
+        setBoard(copy);
+        const bestMove = findBestMove(copy, turn === "X" ? "0" : "X");
+        if (bestMove >= 0) {
+          copy[bestMove] = turn === "X" ? "0" : "X";
+          setBoard(copy);
+        }
+        return;
+      }
 
       const copy = [...board];
       copy[index] = turn;
       setTurn(turn === "X" ? "0" : "X");
       setBoard(copy);
     },
-    [board, turn, playing],
+    [board, turn, playing, isPlayingComputer],
   );
 
   const resetScores = () => {
     setXScore(0);
     setOScore(0);
+    resetGame();
   };
 
   const resetGame = () => {
@@ -57,7 +73,7 @@ const TicTacToe: React.FC = () => {
       <div className="my-3 flex h-8 items-center justify-around">
         <p>X - {xScore}</p>
         <div>
-          {playing ? (
+          {playing && !isPlayingComputer ? (
             <ArrowLeft
               className="transition-transform"
               style={{
@@ -65,7 +81,11 @@ const TicTacToe: React.FC = () => {
               }}
             />
           ) : (
-            <SettingsButton onResetScores={resetScores} />
+            <SettingsButton
+              onResetScores={resetScores}
+              isPlayingComputer={isPlayingComputer}
+              setIsPlayingComputer={setIsPlayingComputer}
+            />
           )}
         </div>
         <p>0 - {oScore}</p>
@@ -78,6 +98,7 @@ const TicTacToe: React.FC = () => {
             variant="outline"
             size="icon"
             className="h-20 w-20"
+            disabled={!playing}
           >
             {getCellIcon(cell)}
           </Button>
