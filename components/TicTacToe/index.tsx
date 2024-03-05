@@ -3,7 +3,6 @@ import * as React from "react";
 
 import { Button } from "../ui/button";
 import { checkWinner, getCellIcon } from "./utils";
-import { ArrowLeft } from "react-feather";
 import SettingsButton from "./SettingsButton";
 import { findBestMove } from "./minimax";
 
@@ -73,20 +72,11 @@ const TicTacToe: React.FC = () => {
       <div className="my-3 flex h-8 items-center justify-around">
         <p>X - {xScore}</p>
         <div>
-          {playing && !isPlayingComputer ? (
-            <ArrowLeft
-              className="transition-transform"
-              style={{
-                transform: `rotate(${turn === "X" ? "0" : "180deg"})`,
-              }}
-            />
-          ) : (
-            <SettingsButton
-              onResetScores={resetScores}
-              isPlayingComputer={isPlayingComputer}
-              setIsPlayingComputer={setIsPlayingComputer}
-            />
-          )}
+          <SettingsButton
+            onResetScores={resetScores}
+            isPlayingComputer={isPlayingComputer}
+            setIsPlayingComputer={setIsPlayingComputer}
+          />
         </div>
         <p>0 - {oScore}</p>
       </div>
