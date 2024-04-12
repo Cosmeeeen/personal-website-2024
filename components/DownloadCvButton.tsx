@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import * as React from "react";
-import { Download, Smile } from "react-feather";
-import { Button } from "./ui/button";
+import * as React from 'react';
+import { Download, Smile } from 'react-feather';
+import { Button } from './ui/button';
 
 const DownloadCvButton: React.FC = () => {
   const [isDownloading, setIsDownloading] = React.useState(false);
@@ -20,17 +20,22 @@ const DownloadCvButton: React.FC = () => {
     setIsDownloading(false);
   };
 
-  if (isDownloading) return (
-    <Button variant="outline" className='flex gap-5 align-center' disabled>
-      Loading...
-      <Smile className='w-5 h-5' />
-    </Button>
-  );
+  if (isDownloading)
+    return (
+      <Button variant='outline' className='align-center flex gap-5' disabled>
+        Loading...
+        <Smile className='h-5 w-5' />
+      </Button>
+    );
 
   return (
-    <Button variant="outline" className='flex gap-5 align-center' onClick={handleClick}>
+    <Button
+      variant='outline'
+      className='align-center flex gap-5'
+      onClick={handleClick}
+    >
       Download my CV
-      <Download className='w-5 h-5' />
+      <Download className='h-5 w-5' />
     </Button>
   );
 };

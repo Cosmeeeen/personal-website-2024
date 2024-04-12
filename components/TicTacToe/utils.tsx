@@ -1,6 +1,6 @@
-import { Circle, X } from "react-feather";
+import { Circle, X } from 'react-feather';
 
-import { TBoard } from "./types";
+import { TBoard } from './types';
 
 const checkWinner = (board: TBoard) => {
   // Check rows and columns
@@ -29,16 +29,16 @@ const checkWinner = (board: TBoard) => {
   }
   // Check for draw
   if (!board.includes(null)) {
-    return "draw";
+    return 'draw';
   }
 };
 
-const getCellIcon = (cell: "X" | "0" | null) => {
+const getCellIcon = (cell: 'X' | '0' | null) => {
   switch (cell) {
-    case "X":
-      return <X size="4em" />;
-    case "0":
-      return <Circle size="4em" />;
+    case 'X':
+      return <X size='4em' />;
+    case '0':
+      return <Circle size='4em' />;
     default:
       return null;
   }

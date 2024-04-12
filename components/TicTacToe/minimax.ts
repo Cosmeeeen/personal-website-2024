@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { TBoard, TPlayer } from "./types";
-import { checkWinner } from "./utils";
+import { TBoard, TPlayer } from './types';
+import { checkWinner } from './utils';
 
 const getBoardScore = (
   board: TBoard,
   depth: number = 0,
-  maxingPlayer: string = "X",
+  maxingPlayer: string = 'X'
 ): number => {
   const winner = checkWinner(board);
 
@@ -14,7 +14,7 @@ const getBoardScore = (
     return 10 - depth;
   }
 
-  if (winner === "draw") {
+  if (winner === 'draw') {
     return 0;
   }
 
@@ -25,7 +25,7 @@ const minimax = (
   board: TBoard,
   depth: number,
   isMaxing: boolean,
-  maxingPlayer: TPlayer = "X",
+  maxingPlayer: TPlayer = 'X'
 ): number => {
   if (checkWinner(board)) {
     return getBoardScore(board, depth, maxingPlayer);
@@ -49,7 +49,7 @@ const minimax = (
   let bestScore = Infinity;
   for (let i = 0; i < board.length; i++) {
     if (board[i] === null) {
-      board[i] = maxingPlayer === "X" ? "0" : "X";
+      board[i] = maxingPlayer === 'X' ? '0' : 'X';
       const score = minimax(board, depth + 1, true, maxingPlayer);
       board[i] = null;
       bestScore = Math.min(bestScore, score);
@@ -58,7 +58,7 @@ const minimax = (
   return bestScore;
 };
 
-const findBestMove = (board: TBoard, maxingPlayer: TPlayer = "X"): number => {
+const findBestMove = (board: TBoard, maxingPlayer: TPlayer = 'X'): number => {
   let bestMove = -1;
   let bestScore = -Infinity;
 

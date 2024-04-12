@@ -1,14 +1,14 @@
-"use client";
-import * as React from "react";
+'use client';
+import * as React from 'react';
 
-import { Button } from "../ui/button";
-import { checkWinner, getCellIcon } from "./utils";
-import SettingsButton from "./SettingsButton";
-import { findBestMove } from "./minimax";
+import { Button } from '../ui/button';
+import { checkWinner, getCellIcon } from './utils';
+import SettingsButton from './SettingsButton';
+import { findBestMove } from './minimax';
 
 const TicTacToe: React.FC = () => {
   const [board, setBoard] = React.useState(Array(9).fill(null));
-  const [turn, setTurn] = React.useState<"X" | "0">("X");
+  const [turn, setTurn] = React.useState<'X' | '0'>('X');
   const [playing, setPlaying] = React.useState(true);
   const [xScore, setXScore] = React.useState(0);
   const [oScore, setOScore] = React.useState(0);
@@ -24,9 +24,9 @@ const TicTacToe: React.FC = () => {
         const copy = [...board];
         copy[index] = turn;
         setBoard(copy);
-        const bestMove = findBestMove(copy, turn === "X" ? "0" : "X");
+        const bestMove = findBestMove(copy, turn === 'X' ? '0' : 'X');
         if (bestMove >= 0) {
-          copy[bestMove] = turn === "X" ? "0" : "X";
+          copy[bestMove] = turn === 'X' ? '0' : 'X';
           setBoard(copy);
         }
         return;
@@ -34,10 +34,10 @@ const TicTacToe: React.FC = () => {
 
       const copy = [...board];
       copy[index] = turn;
-      setTurn(turn === "X" ? "0" : "X");
+      setTurn(turn === 'X' ? '0' : 'X');
       setBoard(copy);
     },
-    [board, turn, playing, isPlayingComputer],
+    [board, turn, playing, isPlayingComputer]
   );
 
   const resetScores = () => {
@@ -48,7 +48,7 @@ const TicTacToe: React.FC = () => {
 
   const resetGame = () => {
     setBoard(Array(9).fill(null));
-    setTurn("X");
+    setTurn('X');
     setPlaying(true);
   };
 
@@ -56,20 +56,20 @@ const TicTacToe: React.FC = () => {
     if (!playing) return;
 
     const winner = checkWinner(board);
-    if (winner === "X") {
+    if (winner === 'X') {
       setXScore(xScore + 1);
       setPlaying(false);
-    } else if (winner === "0") {
+    } else if (winner === '0') {
       setOScore(oScore + 1);
       setPlaying(false);
-    } else if (winner === "draw") {
+    } else if (winner === 'draw') {
       setPlaying(false);
     }
   }, [board, xScore, oScore, playing]);
 
   return (
-    <div className="mx-auto w-fit">
-      <div className="my-3 flex h-8 items-center justify-around">
+    <div className='mx-auto w-fit'>
+      <div className='my-3 flex h-8 items-center justify-around'>
         <p>X - {xScore}</p>
         <div>
           <SettingsButton
@@ -80,14 +80,14 @@ const TicTacToe: React.FC = () => {
         </div>
         <p>0 - {oScore}</p>
       </div>
-      <div className="mx-auto grid w-fit grid-cols-3 grid-rows-3 gap-2">
+      <div className='mx-auto grid w-fit grid-cols-3 grid-rows-3 gap-2'>
         {board.map((cell, index) => (
           <Button
             key={index}
             onClick={() => handleCellClick(index)}
-            variant="outline"
-            size="icon"
-            className="h-20 w-20"
+            variant='outline'
+            size='icon'
+            className='h-20 w-20'
             disabled={!playing}
           >
             {getCellIcon(cell)}
@@ -96,9 +96,9 @@ const TicTacToe: React.FC = () => {
       </div>
       <Button
         onClick={resetGame}
-        variant="outline"
-        size="lg"
-        className="mt-2 w-full"
+        variant='outline'
+        size='lg'
+        className='mt-2 w-full'
       >
         Reset
       </Button>

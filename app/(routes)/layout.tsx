@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { Inter } from "next/font/google";
-import "@/app/globals.css";
-import { ModeToggle } from "@/components/ModeToggle";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { Toaster } from "@/components/ui/toaster";
+import type { Metadata } from 'next';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import { Inter } from 'next/font/google';
+import '@/app/globals.css';
+import { ModeToggle } from '@/components/ModeToggle';
+import { TooltipProvider } from '@/components/ui/tooltip';
+import { Toaster } from '@/components/ui/toaster';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Cosmin Ilie",
+  title: 'Cosmin Ilie',
   description: "Cosmin Ilie's personal website",
 };
 
@@ -19,12 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-        >
+        <ThemeProvider attribute='class' defaultTheme='dark'>
           <TooltipProvider>
             {children}
             <ModeToggle />
@@ -32,6 +29,6 @@ export default function RootLayout({
           </TooltipProvider>
         </ThemeProvider>
       </body>
-    </html >
+    </html>
   );
 }

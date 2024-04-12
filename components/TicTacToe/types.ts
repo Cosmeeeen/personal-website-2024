@@ -1,4 +1,4 @@
-type TPlayer = "X" | "0";
+type TPlayer = 'X' | '0';
 type TBoardCell = TPlayer | null;
 type TBoard = TBoardCell[];
 
