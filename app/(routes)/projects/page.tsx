@@ -49,6 +49,13 @@ export default function About() {
                 </CarouselContent>
                 <CarouselNext />
               </Carousel>
+              {project?.inactive && (
+                <>
+                  <p className='mt-3 text-red-600 italic'>
+                    {project?.inactiveMessage || 'This project is currently inactive.'}
+                  </p>
+                </>
+              )}
               <p className='lg:text-lg text-base mt-3'>{project.description}</p>
               <br />
               <p className='italic'>Used technologies: Next.js (pages router), tRPC, Prisma, Tailwind, NextAuth</p>
