@@ -6,13 +6,14 @@ import { ModeToggle } from '@/components/ModeToggle';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/toaster';
 
-import Script from "next/script";
-
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Cosmin Ilie',
   description: "Cosmin Ilie's personal website",
+  other: {
+    "google-adsense-account": "ca-pub-8594891858511370",
+  }
 };
 
 export default function RootLayout({
@@ -23,7 +24,6 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8594891858511370" crossOrigin="anonymous" />
         <ThemeProvider attribute='class' defaultTheme='dark'>
           <TooltipProvider>
             {children}
